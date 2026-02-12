@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sota — Developer & Artist</title>
+    <meta name="description" content="Sota's personal portfolio — hobby projects, artwork, and more." />
+
+    <!-- Google Fonts: DM Sans + Fraunces -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: ["Fraunces", "serif"],
+              body: ["DM Sans", "sans-serif"],
+            },
+            boxShadow: {
+              glow: "0 10px 30px rgba(15, 23, 42, 0.10)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      /* Base font */
+      body {
+        font-family: "DM Sans", sans-serif;
+      }
+
+      /* Float-in animation */
+      @keyframes float-in {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        animation: float-in 0.5s ease-out both;
+      }
+
+      .fade-in-delay-1 { animation-delay: 0.1s; }
+      .fade-in-delay-2 { animation-delay: 0.2s; }
+      .fade-in-delay-3 { animation-delay: 0.3s; }
+      .fade-in-delay-4 { animation-delay: 0.4s; }
+
+      /* Grain texture overlay */
+      .grain::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.40;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 256px 256px;
+      }
+
+      /* Background gradient */
+      .bg-light {
+        background: linear-gradient(135deg, #f8fafc 0%, #fff7ed 50%, #fef3c7 100%);
+      }
+
+      /* Lightbox backdrop */
+      .lightbox-backdrop {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+      }
+
+      /* Smooth scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #94a3b8;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body class="grain">
+    <div id="root"></div>
+
+    <!-- React 18 via CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+    <!-- Babel standalone for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- App -->
+    <script type="text/babel" data-type="module" src="app.js"></script>
+  </body>
+</html>
