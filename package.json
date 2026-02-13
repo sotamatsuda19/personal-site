@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build:css": "tailwindcss -i src/styles.css -o dist/styles.css --minify",
+    "build:js": "esbuild src/app.jsx --bundle=false --jsx=transform --outfile=dist/app.js",
+    "build": "npm run build:css && npm run build:js",
+    "dev": "npm run build:css -- --watch & npm run build:js -- --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sotamatsuda19/personal-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sotamatsuda19/personal-site/issues"
+  },
+  "homepage": "https://github.com/sotamatsuda19/personal-site#readme",
+  "devDependencies": {
+    "esbuild": "^0.27.3",
+    "tailwindcss": "^3.4.19"
+  }
+}
