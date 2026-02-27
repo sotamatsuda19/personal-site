@@ -34,9 +34,13 @@ function t(lang, key) {
 }
 const PROJECTS = [
   {
-    title: { en: "Project 1", ja: "\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8 1" },
-    src: null,
-    description: { en: "A description of this project.", ja: "\u3053\u306E\u30D7\u30ED\u30B8\u30A7\u30AF\u30C8\u306E\u8AAC\u660E\u3002" }
+    title: { en: "Word Vector Explorer", ja: "\u5358\u8A9E\u30D9\u30AF\u30C8\u30EB\u30A8\u30AF\u30B9\u30D7\u30ED\u30FC\u30E9\u30FC" },
+    src: "assets/screenshots/words.png",
+    link: "https://words.sotamatsuda.com",
+    description: {
+      en: "Explore semantic word similarities using word2vec. Search for related words, discover connections, and navigate the landscape of language.",
+      ja: "Word2Vec\u3092\u4F7F\u3063\u3066\u5358\u8A9E\u306E\u610F\u5473\u7684\u306A\u985E\u4F3C\u6027\u3092\u63A2\u7D22\u3002\u95A2\u9023\u8A9E\u306E\u691C\u7D22\u3001\u7E4B\u304C\u308A\u306E\u767A\u898B\u3001\u8A00\u8A9E\u306E\u7A7A\u9593\u3092\u30CA\u30D3\u30B2\u30FC\u30C8\u3002"
+    }
   }
 ];
 const ARTWORK = [
@@ -155,7 +159,7 @@ function Navbar({ lang, setLang }) {
 }
 function Hero() {
   const lang = useLang();
-  const images = ARTWORK.filter((a) => a.src);
+  const images = [...PROJECTS, ...ARTWORK].filter((a) => a.src);
   const [current, setCurrent] = useState(0);
   useEffect(() => {
     if (images.length < 2) return;
@@ -195,20 +199,30 @@ function Hero() {
 }
 function Card({ item }) {
   const lang = useLang();
-  if (!item.src) return null;
-  return /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl bg-white shadow-glow" }, /* @__PURE__ */ React.createElement("div", { className: "aspect-[4/3] w-full overflow-hidden bg-gray-100" }, /* @__PURE__ */ React.createElement(
+  if (!item.src && !item.link) return null;
+  return /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden rounded-2xl bg-white shadow-glow" }, item.src && /* @__PURE__ */ React.createElement("div", { className: "aspect-[4/3] w-full overflow-hidden bg-gray-100" }, /* @__PURE__ */ React.createElement(
     "img",
     {
       src: item.src,
       alt: item.title[lang],
       className: "h-full w-full object-cover"
     }
-  )), /* @__PURE__ */ React.createElement("div", { className: "p-4" }, /* @__PURE__ */ React.createElement("h3", { className: "font-display text-lg font-bold text-black" }, item.title[lang]), /* @__PURE__ */ React.createElement("p", { className: "mt-1 text-sm text-black/50 line-clamp-1" }, item.description[lang])));
+  )), /* @__PURE__ */ React.createElement("div", { className: "p-4" }, /* @__PURE__ */ React.createElement("h3", { className: "font-display text-lg font-bold text-black" }, item.title[lang]), /* @__PURE__ */ React.createElement("p", { className: "mt-1 text-sm text-black/50 line-clamp-2" }, item.description[lang]), item.link && /* @__PURE__ */ React.createElement(
+    "a",
+    {
+      href: item.link,
+      target: "_blank",
+      rel: "noopener noreferrer",
+      className: "mt-3 inline-flex items-center gap-1 text-sm font-semibold text-black/70 hover:text-black transition"
+    },
+    "View Project ",
+    /* @__PURE__ */ React.createElement(ExternalLinkIcon, { className: "w-3.5 h-3.5" })
+  )));
 }
 function Works() {
   const lang = useLang();
   const headingRef = useScrollFadeIn();
-  const hasContent = PROJECTS.some((p) => p.src) || ARTWORK.some((a) => a.src);
+  const hasContent = PROJECTS.some((p) => p.src || p.link) || ARTWORK.some((a) => a.src);
   return /* @__PURE__ */ React.createElement("section", { id: "works", className: "px-6 py-24" }, /* @__PURE__ */ React.createElement("div", { className: "mx-auto max-w-5xl" }, /* @__PURE__ */ React.createElement("div", { ref: headingRef, className: "mb-12 text-center" }, /* @__PURE__ */ React.createElement("h2", { className: "font-display text-4xl font-bold text-black sm:text-5xl" }, t(lang, "worksHeading"))), hasContent ? /* @__PURE__ */ React.createElement("div", { className: "grid gap-6 sm:grid-cols-2 lg:grid-cols-3" }, PROJECTS.map((project, i) => /* @__PURE__ */ React.createElement(Card, { key: `project-${i}`, item: project })), ARTWORK.map((item, i) => /* @__PURE__ */ React.createElement(Card, { key: `artwork-${i}`, item }))) : /* @__PURE__ */ React.createElement("p", { className: "text-center text-lg text-black/40" }, t(lang, "comingSoon"))));
 }
 function Profile() {

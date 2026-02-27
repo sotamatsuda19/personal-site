@@ -66,9 +66,13 @@ function t(lang, key) {
 // Add your projects here. Each entry needs: title (en/ja), src, description (en/ja)
 const PROJECTS = [
   {
-    title: { en: "Project 1", ja: "プロジェクト 1" },
-    src: null,
-    description: { en: "A description of this project.", ja: "このプロジェクトの説明。" },
+    title: { en: "Word Vector Explorer", ja: "単語ベクトルエクスプローラー" },
+    src: "assets/screenshots/words.png",
+    link: "https://words.sotamatsuda.com",
+    description: {
+      en: "Explore semantic word similarities using word2vec. Search for related words, discover connections, and navigate the landscape of language.",
+      ja: "Word2Vecを使って単語の意味的な類似性を探索。関連語の検索、繋がりの発見、言語の空間をナビゲート。",
+    },
   },
 ];
 
@@ -253,7 +257,7 @@ function Navbar({ lang, setLang }) {
 
 function Hero() {
   const lang = useLang();
-  const images = ARTWORK.filter((a) => a.src);
+  const images = [...PROJECTS, ...ARTWORK].filter((a) => a.src);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -312,20 +316,32 @@ function Hero() {
 
 function Card({ item }) {
   const lang = useLang();
-  if (!item.src) return null;
+  if (!item.src && !item.link) return null;
 
   return (
     <div className="overflow-hidden rounded-2xl bg-white shadow-glow">
-      <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
-        <img
-          src={item.src}
-          alt={item.title[lang]}
-          className="h-full w-full object-cover"
-        />
-      </div>
+      {item.src && (
+        <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100">
+          <img
+            src={item.src}
+            alt={item.title[lang]}
+            className="h-full w-full object-cover"
+          />
+        </div>
+      )}
       <div className="p-4">
         <h3 className="font-display text-lg font-bold text-black">{item.title[lang]}</h3>
-        <p className="mt-1 text-sm text-black/50 line-clamp-1">{item.description[lang]}</p>
+        <p className="mt-1 text-sm text-black/50 line-clamp-2">{item.description[lang]}</p>
+        {item.link && (
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-black/70 hover:text-black transition"
+          >
+            View Project <ExternalLinkIcon className="w-3.5 h-3.5" />
+          </a>
+        )}
       </div>
     </div>
   );
@@ -334,7 +350,7 @@ function Card({ item }) {
 function Works() {
   const lang = useLang();
   const headingRef = useScrollFadeIn();
-  const hasContent = PROJECTS.some((p) => p.src) || ARTWORK.some((a) => a.src);
+  const hasContent = PROJECTS.some((p) => p.src || p.link) || ARTWORK.some((a) => a.src);
 
   return (
     <section id="works" className="px-6 py-24">
