@@ -38,8 +38,8 @@ const PROJECTS = [
     src: "assets/screenshots/words.png",
     link: "https://words.sotamatsuda.com",
     description: {
-      en: "Explore semantic word similarities using word2vec. Search for related words, discover connections, and navigate the landscape of language.",
-      ja: "Word2Vec\u3092\u4F7F\u3063\u3066\u5358\u8A9E\u306E\u610F\u5473\u7684\u306A\u985E\u4F3C\u6027\u3092\u63A2\u7D22\u3002\u95A2\u9023\u8A9E\u306E\u691C\u7D22\u3001\u7E4B\u304C\u308A\u306E\u767A\u898B\u3001\u8A00\u8A9E\u306E\u7A7A\u9593\u3092\u30CA\u30D3\u30B2\u30FC\u30C8\u3002"
+      en: "Discover how words relate to each other through vector space.",
+      ja: "\u30D9\u30AF\u30C8\u30EB\u7A7A\u9593\u3067\u5358\u8A9E\u306E\u95A2\u4FC2\u3092\u767A\u898B"
     }
   }
 ];
@@ -159,7 +159,7 @@ function Navbar({ lang, setLang }) {
 }
 function Hero() {
   const lang = useLang();
-  const images = [...PROJECTS, ...ARTWORK].filter((a) => a.src);
+  const images = ARTWORK.filter((a) => a.src);
   const [current, setCurrent] = useState(0);
   useEffect(() => {
     if (images.length < 2) return;
@@ -168,7 +168,7 @@ function Hero() {
     }, 4e3);
     return () => clearInterval(id);
   }, [images.length]);
-  return /* @__PURE__ */ React.createElement("section", { className: "relative flex min-h-screen items-center justify-center px-6 overflow-hidden" }, images.length > 0 && images.map((img, i) => /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ React.createElement("section", { className: "relative flex min-h-[50vh] items-center justify-center px-6 overflow-hidden" }, images.length > 0 && images.map((img, i) => /* @__PURE__ */ React.createElement(
     "div",
     {
       key: i,
@@ -177,7 +177,8 @@ function Hero() {
         backgroundImage: `url(${img.src})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
-        opacity: i === current ? 1 : 0
+        opacity: i === current ? 1 : 0,
+        filter: "grayscale(100%)"
       }
     }
   )), images.length > 0 && /* @__PURE__ */ React.createElement("div", { className: "absolute inset-0 bg-white/60" }), /* @__PURE__ */ React.createElement("div", { className: "relative text-center" }, /* @__PURE__ */ React.createElement("h1", { className: "fade-in font-display text-6xl font-bold tracking-tight text-black sm:text-7xl" }, "SotaMatsuda"), /* @__PURE__ */ React.createElement("div", { className: "fade-in fade-in-delay-1 mt-8 flex items-center justify-center gap-4" }, /* @__PURE__ */ React.createElement(

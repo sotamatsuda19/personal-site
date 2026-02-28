@@ -70,8 +70,8 @@ const PROJECTS = [
     src: "assets/screenshots/words.png",
     link: "https://words.sotamatsuda.com",
     description: {
-      en: "Explore semantic word similarities using word2vec. Search for related words, discover connections, and navigate the landscape of language.",
-      ja: "Word2Vecを使って単語の意味的な類似性を探索。関連語の検索、繋がりの発見、言語の空間をナビゲート。",
+      en: "Discover how words relate to each other through vector space.",
+      ja: "ベクトル空間で単語の関係を発見",
     },
   },
 ];
@@ -257,7 +257,7 @@ function Navbar({ lang, setLang }) {
 
 function Hero() {
   const lang = useLang();
-  const images = [...PROJECTS, ...ARTWORK].filter((a) => a.src);
+  const images = ARTWORK.filter((a) => a.src);
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -269,7 +269,7 @@ function Hero() {
   }, [images.length]);
 
   return (
-    <section className="relative flex min-h-screen items-center justify-center px-6 overflow-hidden">
+    <section className="relative flex min-h-[50vh] items-center justify-center px-6 overflow-hidden">
       {/* Background slides */}
       {images.length > 0 &&
         images.map((img, i) => (
@@ -281,6 +281,7 @@ function Hero() {
               backgroundSize: "cover",
               backgroundPosition: "center",
               opacity: i === current ? 1 : 0,
+              filter: "grayscale(100%)",
             }}
           />
         ))}
