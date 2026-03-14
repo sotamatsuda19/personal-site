@@ -8,7 +8,7 @@ const STRINGS = {
     worksHeading: "Works",
     comingSoon: "Coming soon...",
     profileHeading: "Profile",
-    profileBio: "Sota Matsuda\n\nUniversity of Rochester (2025 - Present)\n- B.S. in Computer Science\n\nThe University of Tokyo (2025)\n- Completed coursework prior to transferring to the U.S.\n\nShogi (Japanese chess): Amateur 4-dan\nChess.com rating: 2000+\n\nFocus Areas:\nReimagining the Digital Experience:\nSolving Tech-driven Problems with Art, Logic & Creativity\n- Artificial Intelligence, Human-AI collaboration\n- Unexplored ideas, Creative design\n",
+    profileBio: "Sota Matsuda\n\nUniversity of Rochester (2025 - Present)\n- B.S. in Computer Science\n\nThe University of Tokyo (2025)\n- Completed coursework prior to transferring to the U.S.\n\nShogi (Japanese chess): Amateur 4-dan\nChess.com rating: 2000+\n\nFocus Areas:\nSolving Tech-driven Problems with Art & Creativity\n- Artificial Intelligence, Human-AI collaboration\n- Unexplored ideas, Creative design\n",
     profileLinks: "Links",
     contactHeading: "Contact"
   },
@@ -20,7 +20,7 @@ const STRINGS = {
     worksHeading: "\u4F5C\u54C1",
     comingSoon: "\u6E96\u5099\u4E2D...",
     profileHeading: "\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB",
-    profileBio: "\u677E\u7530\u98AF\u592A\n\n\u30ED\u30C1\u30A7\u30B9\u30BF\u30FC\u5927\u5B66 \u30B3\u30F3\u30D4\u30E5\u30FC\u30BF\u30B5\u30A4\u30A8\u30F3\u30B9\u5C02\u653B (2025 - \u73FE\u5728)\n\u6771\u4EAC\u5927\u5B66\u5728\u7C4D (2025)\n\n\u5C06\u68CB\u30A2\u30DE\u30C1\u30E5\u30A2\u56DB\u6BB5\nChess.com \u30EC\u30FC\u30C6\u30A3\u30F3\u30B0 2000+\n\n\u5C02\u9580\u8AB2\u984C\n\u30C7\u30B8\u30BF\u30EB\u7A7A\u9593\u3092\u518D\u5B9A\u7FA9:\n\u6280\u8853\u304C\u751F\u3093\u3060\u554F\u984C\u3092\u3001\u30A2\u30FC\u30C8\u30FB\u8AD6\u7406\u30FB\u5275\u9020\u6027\u3067\u89E3\u6C7A\u3059\u308B\n- \u4EBA\u5DE5\u77E5\u80FD\u3001\u4EBA\u9593\u3068AI\u306E\u30B3\u30E9\u30DC\u30EC\u30FC\u30B7\u30E7\u30F3\n- \u672A\u958B\u62D3\u306E\u30A2\u30A4\u30C7\u30A2\u3001\u30AF\u30EA\u30A8\u30A4\u30C6\u30A3\u30D6\u30C7\u30B6\u30A4\u30F3",
+    profileBio: "\u677E\u7530\u98AF\u592A\n\n\u30ED\u30C1\u30A7\u30B9\u30BF\u30FC\u5927\u5B66 \u30B3\u30F3\u30D4\u30E5\u30FC\u30BF\u30B5\u30A4\u30A8\u30F3\u30B9\u5C02\u653B (2025 - \u73FE\u5728)\n\u6771\u4EAC\u5927\u5B66\u5728\u7C4D (2025)\n\n\u5C06\u68CB\u30A2\u30DE\u30C1\u30E5\u30A2\u56DB\u6BB5\nChess.com \u30EC\u30FC\u30C6\u30A3\u30F3\u30B0 2000+\n\n\u5C02\u9580\u8AB2\u984C\n\u6280\u8853\u304C\u751F\u3093\u3060\u554F\u984C\u3092\u3001\u30A2\u30FC\u30C8\u30FB\u5275\u9020\u6027\u3067\u89E3\u6C7A\u3059\u308B\n- \u4EBA\u5DE5\u77E5\u80FD\u3001\u4EBA\u9593\u3068AI\u306E\u30B3\u30E9\u30DC\u30EC\u30FC\u30B7\u30E7\u30F3\n- \u672A\u958B\u62D3\u306E\u30A2\u30A4\u30C7\u30A2\u3001\u30AF\u30EA\u30A8\u30A4\u30C6\u30A3\u30D6\u30C7\u30B6\u30A4\u30F3",
     profileLinks: "\u30EA\u30F3\u30AF",
     contactHeading: "\u304A\u554F\u3044\u5408\u308F\u305B"
   }
@@ -40,6 +40,15 @@ const PROJECTS = [
     description: {
       en: "Discover how words relate to each other through vector space.",
       ja: "\u30D9\u30AF\u30C8\u30EB\u7A7A\u9593\u3067\u5358\u8A9E\u306E\u95A2\u4FC2\u3092\u767A\u898B"
+    }
+  },
+  {
+    title: { en: "UR chatbot", ja: "\u30ED\u30C1\u30A7\u30B9\u30BF\u30FC\u5927\u5B66AI" },
+    src: "assets/screenshots/urchatbot.png",
+    link: "https://urchatbot.sotamatsuda.com",
+    description: {
+      en: "RAG-powered chatbot built for U of R.",
+      ja: "RAG\u3092\u6D3B\u7528\u3057\u305F\u30ED\u30C1\u30A7\u30B9\u30BF\u30FC\u5927\u5B66\u5411\u3051\u30C1\u30E3\u30C3\u30C8bot"
     }
   }
 ];

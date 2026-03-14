@@ -20,8 +20,7 @@ const STRINGS = {
       "Shogi (Japanese chess): Amateur 4-dan\n" +
       "Chess.com rating: 2000+\n\n" +
       "Focus Areas:\n" +
-      "Reimagining the Digital Experience:\n" +
-      "Solving Tech-driven Problems with Art, Logic & Creativity\n" +
+      "Solving Tech-driven Problems with Art & Creativity\n" +
       "- Artificial Intelligence, Human-AI collaboration\n" +
       "- Unexplored ideas, Creative design\n",
     profileLinks: "Links",
@@ -42,8 +41,7 @@ const STRINGS = {
       "将棋アマチュア四段\n" +
       "Chess.com レーティング 2000+\n\n" +
       "専門課題\n" +
-      "デジタル空間を再定義:\n" +
-      "技術が生んだ問題を、アート・論理・創造性で解決する\n" +
+      "技術が生んだ問題を、アート・創造性で解決する\n" +
       "- 人工知能、人間とAIのコラボレーション\n" +
       "- 未開拓のアイデア、クリエイティブデザイン",
     profileLinks: "リンク",
@@ -72,6 +70,15 @@ const PROJECTS = [
     description: {
       en: "Discover how words relate to each other through vector space.",
       ja: "ベクトル空間で単語の関係を発見",
+    },
+  },
+  {
+    title: { en: "UR chatbot", ja: "ロチェスター大学AI" },
+    src: "assets/screenshots/urchatbot.png",
+    link: "https://urchatbot.sotamatsuda.com",
+    description: {
+      en: "RAG-powered chatbot built for U of R.",
+      ja: "RAGを活用したロチェスター大学向けチャットbot",
     },
   },
 ];

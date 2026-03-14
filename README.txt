@@ -58,9 +58,10 @@ Hero:
 
 Works:
   A unified grid combining both projects and artwork into a single section.
-  Cards are only visible when they have an image (src) set. If no cards
-  have images, the section shows "Coming soon..." / "準備中..." instead.
-  Each card displays an image, title, and a one-line description.
+  Project cards are visible when they have either an image (src) or a link
+  set. Artwork cards require an image. If no cards have content, the section
+  shows "Coming soon..." / "準備中..." instead. Each card displays an image
+  (if set), title, description, and a "View Project" link (if set).
 
 Profile:
   Short bio section with links to GitHub and note.
@@ -134,11 +135,21 @@ Adding Content
 All content is managed through arrays at the top of src/app.jsx. Each
 entry uses bilingual title and description fields.
 
-Add a project:
+Add a project (with link, no image):
+  Add to the PROJECTS array in src/app.jsx:
+  {
+    title: { en: "My Project", ja: "私のプロジェクト" },
+    src: null,
+    link: "https://myproject.sotamatsuda.com",
+    description: { en: "What it does.", ja: "これの説明。" },
+  }
+
+Add a project (with image):
   Drop the image in assets/screenshots/, then add to the PROJECTS array:
   {
     title: { en: "My Project", ja: "私のプロジェクト" },
     src: "assets/screenshots/my-project.png",
+    link: "https://myproject.sotamatsuda.com",  // optional
     description: { en: "What it does.", ja: "これの説明。" },
   }
 
@@ -152,8 +163,9 @@ Add artwork:
 
 After editing src/app.jsx, run npm run build to regenerate dist/app.js.
 
-Cards without a src set are hidden. The Works section shows "Coming soon..."
-only when no cards have images at all.
+Project cards are shown when they have either src or link set.
+Artwork cards require a src image. The Works section shows "Coming soon..."
+only when no cards have any content at all.
 
 Images with a valid src in the ARTWORK array will also appear in the hero
 background slideshow.
