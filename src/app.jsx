@@ -81,6 +81,15 @@ const PROJECTS = [
       ja: "RAGを活用したロチェスター大学向けチャットbot",
     },
   },
+  {
+    title: { en: "Nonsense AI", ja: "馬鹿AI" },
+    src: "assets/screenshots/nonsense.png",
+    link: "https://nonsense-bot.onrender.com/",
+    description: {
+      en: "LoRA trained AI model that makes no sense",
+      ja: "論理が壊れるように学習されたAI",
+    },
+  },
 ];
 
 // Add your artwork here. Drop images in assets/artwork/ and add entries below.

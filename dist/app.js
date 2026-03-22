@@ -50,6 +50,15 @@ const PROJECTS = [
       en: "RAG-powered chatbot built for U of R.",
       ja: "RAG\u3092\u6D3B\u7528\u3057\u305F\u30ED\u30C1\u30A7\u30B9\u30BF\u30FC\u5927\u5B66\u5411\u3051\u30C1\u30E3\u30C3\u30C8bot"
     }
+  },
+  {
+    title: { en: "Nonsense AI", ja: "\u99AC\u9E7FAI" },
+    src: "assets/screenshots/nonsense.png",
+    link: "https://nonsense-bot.onrender.com/",
+    description: {
+      en: "LoRA trained AI model that makes no sense",
+      ja: "\u8AD6\u7406\u304C\u58CA\u308C\u308B\u3088\u3046\u306B\u5B66\u7FD2\u3055\u308C\u305FAI"
+    }
   }
 ];
 const ARTWORK = [
